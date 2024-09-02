@@ -23,4 +23,18 @@ public class Library{
         books.forEach(System.out::println);
     }    
 
+    private Book inputBookDetails(Scanner scanner) {
+        System.out.print("Enter Book ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+        System.out.print("Enter Book Title: ");
+        String title = scanner.nextLine();
+        System.out.print("Enter Book Author: ");
+        String author = scanner.nextLine();
+        System.out.print("Enter Book ISBN: ");
+        long isbn = scanner.nextLong();
+
+        return new Book(id, title, author,isbn);
+    }
+
 }
