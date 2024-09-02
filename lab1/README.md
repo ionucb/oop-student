@@ -34,7 +34,7 @@ To run the Library Management System, follow these steps:
 ## Example of usage
 After compiling and running the `Main.java` file we will choose an option from this menu
 
-```sh
+```md
 Library Management System
 1. Add Book
 2. Delete Book
@@ -45,7 +45,7 @@ Enter your choice:
 
 Now choosing option number 1 (Add Book), and enter the book information (id, title, author and isbn):
 
-```sh
+```md
 Enter your choice: 1
 Enter Book ID: 1
 Enter Book Title: Structure and Interpretation of Computer Programs
@@ -55,13 +55,13 @@ Book added successfully!
 ```
 Now we will check if our book has been added by choosing option 3 (List All Books):
 
-```sh
+```md
 Enter your choice: 3
 Book{id=1, title='Structure and Interpretation of Computer Programs', author='Harold Abelson', isbn=9780262543231}
 ```
 I've added a few more books to make the list bigger and now we're going to test the deletion. The list of books now looks like this:
 
-```sh
+```md
 Enter your choice: 3
 Book{id=1, title='Structure and Interpretation of Computer Programs', author='Harold Abelson', isbn=9780262543231}
 Book{id=2, title='Computer Systems: A Programmer's Perspective', author='Randal Bryant', isbn=9780134092669}
@@ -69,14 +69,14 @@ Book{id=3, title='Readings in Database Systems', author='Joseph M. Hellerstein',
 ```
 Let's try to delete the book with id 2.
 
-```sh
+```md
 Enter your choice: 2
 Enter Book ID to delete: 2
 Book deleted successfully!
 ```
 Magic, the book with id 2 is gone.
 
-```sh
+```md
 Enter your choice: 3
 Book{id=1, title='Structure and Interpretation of Computer Programs', author='Harold Abelson', isbn=9780262543231}
 Book{id=3, title='Readings in Database Systems', author='Joseph M. Hellerstein', isbn=9780262693141}
