@@ -37,4 +37,39 @@ public class Library{
         return new Book(id, title, author,isbn);
     }
 
+    public void start(){
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("\nLibrary Management System");
+            System.out.println("1. Add Book");
+            System.out.println("2. Delete Book");
+            System.out.println("3. List All Books");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Fix for Scanner bug
+            switch (choice) {
+                case 1:
+                    addBook(inputBookDetails(scanner));
+                    break;
+                case 2:
+                    System.out.print("Enter Book ID to delete: ");
+                    int id = scanner.nextInt();
+                    deleteBook(id);
+                    break;
+                case 3:
+                    listBooks();
+                    break;
+                case 0:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice, please enter a number between 0 and 3.");
+                    break;
+            }    
+        }
+  }
+
 }
