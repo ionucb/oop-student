@@ -1,40 +1,39 @@
-public class Book{
+public class Book {
+    private int id;
+    private String title;
+    private String author;
+    private long isbn;
 
-    String title;
-    String author;
-    long isbn;
-    
+    public Book(int id, String title, String author, long isbn) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getTitle() {
-    return title;
+        return title;
     }
-
-  
-    public void setTitle(String newTitle) {
-    this.title = newTitle;
-    }
-
 
     public String getAuthor() {
-    return author;
+        return author;
     }
-
-  
-    public void setAuthor(String newAuthor) {
-    this.author = newAuthor;
-    }
-
 
     public long getIsbn() {
-    return isbn;
+        return isbn;
     }
 
-  
-    public void setTitle(long newIsbn) {
-    this.isbn = newIsbn;
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", isbn=" + isbn +
+                '}';
     }
-
-    public String ToString(){
-        return "Title:"+title + " Author:"+author+"ISBN:"+isbn;
-    }
-
 }
