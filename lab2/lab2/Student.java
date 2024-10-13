@@ -19,4 +19,28 @@ public class Student implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Date getEnrollmentDate() {
+
+        return enrollmentDate;
+    }
+
+    public Date getDateOfBirth() {
+
+        return dateOfBirth;
+    }
+
+    
+
 }
