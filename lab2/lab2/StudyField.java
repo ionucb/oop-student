@@ -1,3 +1,5 @@
+package lab2;
+
 public enum StudyField {
 
     MECHANICAL_ENGINEERING,
