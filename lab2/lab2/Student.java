@@ -10,13 +10,15 @@ public class Student implements Serializable {
     private String email;
     private Date enrollmentDate;
     private Date dateOfBirth;
+    private String uniqueId;
 
-    public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth) {
+    public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth, String uniqueId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.enrollmentDate = enrollmentDate;
         this.dateOfBirth = dateOfBirth;
+        this.uniqueId = uniqueId;
     }
 
     public String getFirstName() {
@@ -41,6 +43,10 @@ public class Student implements Serializable {
         return dateOfBirth;
     }
 
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -59,5 +65,9 @@ public class Student implements Serializable {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
     }
 }
