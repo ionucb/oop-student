@@ -12,7 +12,8 @@ public class Student implements Serializable {
     private Date dateOfBirth;
     private String uniqueId;
 
-    public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth, String uniqueId) {
+    public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth,
+            String uniqueId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
