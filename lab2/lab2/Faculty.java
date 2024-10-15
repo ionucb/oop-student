@@ -6,21 +6,30 @@ import java.util.List;
 
 public class Faculty implements Serializable {
 
-    private String name;
+    private static final long serialVersionUID = 1L;
+
     private String abbreviation;
     private List<Student> students;
     private StudyField studyField;
+    private List<Student> graduateStudents;
 
-    public Faculty(String name, String abbreviation, StudyField studyField, List<Student> students) {
-        this.name = name;
+    public Faculty(String abbreviation, StudyField studyField) {
         this.abbreviation = abbreviation;
-        this.studyField = studyField;
         this.students = new ArrayList<>();
+        this.studyField = studyField;
+        this.graduateStudents = new ArrayList<>();
+
     }
 
     public void enrollStudent(Student student) {
 
         students.add(student);
+    }
+
+    public void graduateStudent(Student student) {
+
+        students.remove(student);
+        graduateStudents.add(student);
     }
 
     public void displayCurrentStudents() {
@@ -31,11 +40,6 @@ public class Faculty implements Serializable {
 
             System.out.println(student.getFirstName() + " " + student.getLastName());
         }
-    }
-
-    public String getName() {
-
-        return name;
     }
 
     public List<Student> getStudents() {
