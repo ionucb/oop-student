@@ -32,6 +32,11 @@ public class Faculty implements Serializable {
         graduateStudents.add(student);
     }
 
+    public List<Student> getGraduateStudents() {
+
+        return graduateStudents;
+    }
+
     public void displayCurrentStudents() {
 
         System.out.println("Currently Enrolled Students in " + abbreviation + ": ");
@@ -40,6 +45,29 @@ public class Faculty implements Serializable {
 
             System.out.println(student.getFirstName() + " " + student.getLastName());
         }
+    }
+
+    public void displayGraduates(List<Student> allStudents) {
+
+        System.out.println("Graduated Students from " + abbreviation + ":");
+
+        for (Student student : allStudents) {
+            if (!students.contains(student)) {
+
+                System.out.println(student.getFirstName() + " " + student.getLastName());
+            }
+        }
+    }
+
+    public boolean isStudentInFaculty(String uniqueId) {
+
+        for (Student student : students) {
+            if (student.getUniqueId().equals(uniqueId)) {
+
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Student> getStudents() {
@@ -55,5 +83,14 @@ public class Faculty implements Serializable {
     public StudyField getStudyField() {
 
         return studyField;
+    }
+
+    public Student findStudentByUniqueId(String uniqueId) {
+        for (Student student : students) {
+            if (student.getUniqueId().equals(uniqueId)) {
+                return student;
+            }
+        }
+        return null;
     }
 }
