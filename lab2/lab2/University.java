@@ -1,5 +1,8 @@
 package lab2;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +70,48 @@ public class University implements Serializable {
             }
         }
         return null;
+    }
+
+    public void graduateStudentFromFaculty(String studentUniqueId) {
+
+        Faculty faculty = findFacultyForStudent(studentUniqueId);
+
+        if (faculty != null) {
+
+            Student studentToGraduate = null;
+            for (Student student : faculty.getStudents()) {
+                if (student.getUniqueId().equals(studentUniqueId)) {
+
+                    studentToGraduate = student;
+                    break;
+                }
+            }
+
+            if (studentToGraduate != null) {
+
+                faculty.graduateStudent(studentToGraduate);
+                System.out.println("Student" + studentToGraduate.getFirstName() + " " + studentToGraduate.getLastName() + " graduated from " + faculty.getAbbreviation() + " faculty.");
+            } else {
+
+                System.out.println("Student not found in the specified faculty.");
+            }
+        } else {
+
+            System.out.println("Faculty not found.");
+        }
+    }
+
+    private void writeObject(ObjectOutputStream out) throws IOException {
+
+        out.defaultWriteObject();
+        out.writeObject(new ArrayList<>(faculties));
+    }
+
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+
+        in.defaultReadObject();
+        faculties = (List<Faculty>) in.readObject();
     }
 
 }
