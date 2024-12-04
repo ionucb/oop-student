@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Student implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String firstName;
     private String lastName;
@@ -12,14 +13,15 @@ public class Student implements Serializable {
     private Date dateOfBirth;
     private String uniqueId;
 
-    public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth,
-            String uniqueId) {
+    public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth, String uniqueId) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.enrollmentDate = enrollmentDate;
         this.dateOfBirth = dateOfBirth;
         this.uniqueId = uniqueId;
+
     }
 
     public String getFirstName() {
@@ -34,6 +36,10 @@ public class Student implements Serializable {
         return email;
     }
 
+    public String getUniqueId() {
+        return uniqueId;
+    }
+
     public Date getEnrollmentDate() {
 
         return enrollmentDate;
@@ -42,33 +48,5 @@ public class Student implements Serializable {
     public Date getDateOfBirth() {
 
         return dateOfBirth;
-    }
-
-    public String getUniqueId() {
-        return uniqueId;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setEnrollmentDate(Date enrollmentDate) {
-        this.enrollmentDate = enrollmentDate;
-    }
-
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public void setUniqueId(String uniqueId) {
-        this.uniqueId = uniqueId;
     }
 }

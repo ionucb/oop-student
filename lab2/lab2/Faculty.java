@@ -14,9 +14,10 @@ public class Faculty implements Serializable {
     private List<Student> graduateStudents;
 
     public Faculty(String abbreviation, StudyField studyField) {
+
         this.abbreviation = abbreviation;
-        this.students = new ArrayList<>();
         this.studyField = studyField;
+        this.students = new ArrayList<>();
         this.graduateStudents = new ArrayList<>();
 
     }
@@ -93,4 +94,5 @@ public class Faculty implements Serializable {
         }
         return null;
     }
+
 }

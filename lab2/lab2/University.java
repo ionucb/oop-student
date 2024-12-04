@@ -23,6 +23,7 @@ public class University implements Serializable {
         faculties.add(newFaculty);
     }
 
+
     public Faculty findFacultyForStudent(String uniqueIdentifier) {
 
         for (Faculty faculty : faculties) {
@@ -42,8 +43,7 @@ public class University implements Serializable {
         System.out.println("University Faculties:");
         for (Faculty faculty : faculties) {
 
-            System.out.println(
-                    "Abbreviation: " + faculty.getAbbreviation() + ", Study Field: " + faculty.getStudyField());
+            System.out.println("Abbreviation: " + faculty.getAbbreviation() + ", Study Field: " + faculty.getStudyField());
         }
     }
 
@@ -113,5 +113,4 @@ public class University implements Serializable {
         in.defaultReadObject();
         faculties = (List<Faculty>) in.readObject();
     }
-
 }
