@@ -4,9 +4,6 @@
 
 #### **1. Descrierea Claselor și Ierarhiilor**
 
-**Ierarhia de clase:**
-Diagrama UML oferă o structură ierarhică pentru entitățile ecosistemului. Aceasta include entități fundamentale pentru plante, animale (carnivore, erbivore, omnivore) și interacțiuni, organizate după funcționalitatea lor în cadrul simulării unui ecosistem.
-
 - **EntitateEcosistem**: Clasa de bază pentru toate entitățile din ecosistem. Conține atributele comune pentru toate entitățile, cum ar fi numele, energia, rata de supraviețuire și locația (coordonatele x, y). Aceasta definește comportamentele de bază, precum verificarea vieții (`isAlive()`) și acțiunile (`act(Ecosystem ecosystem)`).
   
   - **Planta**: Reprezintă o plantă din ecosistem, cu metode precum `grow()` și `reproduce()`. Ea se adaugă și interacționează cu ecosistemul în mod specific.
@@ -85,6 +82,8 @@ Diagrama UML oferă o reprezentare vizuală detaliată a structurii și relații
 
 ---
 
+![uml diagram](assets/diagrama_white.png)
+
 #### **4. Scenarii de Utilizare**
 
 **Scenariul 1: Crearea și simularea unui ecosistem cu carnivore și erbivore**
@@ -115,4 +114,3 @@ Diagrama UML oferă o reprezentare vizuală detaliată a structurii și relații
 
 ---
 
-Această documentație oferă o descriere detaliată a arhitecturii, comportamentului și funcționalităților proiectului, facilitând înțelegerea codului și a modului în care este gestionat ecosistemul virtual.
