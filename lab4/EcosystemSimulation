@@ -1,0 +1,130 @@
+import java.util.Scanner;
+
+public class EcosystemSimulation {
+    public static void main(String[] args) {
+        Ecosistem ecosystem = new Ecosistem(5,5,3,2);
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n======================================");
+            System.out.println("          SIMULARE ECOSISTEM          ");
+            System.out.println("======================================");
+            System.out.println("1. Adaugă o Plantă      - Adaugă o entitate nouă de tip plantă în ecosistem.");
+            System.out.println("2. Adaugă un Ierbivor   - Adaugă un ierbivor care se hrănește cu plante.");
+            System.out.println("3. Adaugă un Carnivor   - Adaugă un carnivor care se hrănește cu ierbivori.");
+            System.out.println("4. Adaugă un Omnivor    - Adaugă un omnivor care consumă atât plante, cât și ierbivori.");
+            System.out.println("5. Simulează un Pas     - Avansează simularea cu un pas de timp, permițând entităților să acționeze.");
+            System.out.println("6. Afișează Ecosistemul - Vizualizează starea curentă a tuturor entităților din ecosistem.");
+            System.out.println("7. Raport Final         - Afișează raportul final al ecosistemului.");
+            System.out.println("8. Simulare Extinsă     - Rulează automat mai mulți pași ai simulării.");
+            System.out.println("9. Ieșire               - Părăsește programul de simulare.");
+            System.out.println("======================================");
+            System.out.print("Alege o opțiune (1-9): ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    addPlant(scanner, ecosystem);
+                    break;
+                case 2:
+                    addHerbivore(scanner, ecosystem);
+                    break;
+                case 3:
+                    addCarnivore(scanner, ecosystem);
+                    break;
+                case 4:
+                    addOmnivore(scanner, ecosystem);
+                    break;
+                case 5:
+                    ecosystem.simulateStep();
+                    System.out.println("Simulare avansată cu un pas.");
+                    break;
+                case 6:
+                    ecosystem.displayState();
+                    break;
+                case 7:
+                    ecosystem.generateFinalReport();
+                    System.out.println("Raport final generat cu succes.");
+                    break;
+                case 8:
+                    runExtendedSimulation(scanner, ecosystem);
+                    break;
+                case 9:
+                    System.out.println("Programul de simulare a fost închis. La revedere!");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Opțiune invalidă. Te rog să introduci un număr între 1 și 9.");
+            }
+        }
+    }
+
+    private static void addPlant(Scanner scanner, Ecosistem ecosystem) {
+        System.out.print("Introduceți numele plantei: ");
+        String plantName = scanner.next();
+        System.out.print("Introduceți energia plantei: ");
+        int plantEnergy = scanner.nextInt();
+        System.out.print("Introduceți coordonatele plantei (x y): ");
+        int plantX = scanner.nextInt();
+        int plantY = scanner.nextInt();
+        // Începem generația de la 1 pentru plantele noi
+        int generation = 1;
+        ecosystem.addEntity(new Planta(plantName, plantEnergy, plantX, plantY, 1));
+        System.out.println("Planta a fost adăugată: " + plantName);
+    }
+
+    private static void addHerbivore(Scanner scanner, Ecosistem ecosystem) {
+        System.out.print("Introduceți numele ierbivorului: ");
+        String herbName = scanner.next();
+        System.out.print("Introduceți energia ierbivorului: ");
+        int herbEnergy = scanner.nextInt();
+        System.out.print("Introduceți coordonatele ierbivorului (x y): ");
+        int herbX = scanner.nextInt();
+        int herbY = scanner.nextInt();
+        System.out.print("Introduceți viteza ierbivorului: ");
+        int herbSpeed = scanner.nextInt();
+        ecosystem.addEntity(new Erbivor(herbName, herbEnergy, herbX, herbY, 0.8, herbSpeed,1));
+        System.out.println("Ierbivorul a fost adăugat: " + herbName);
+    }
+
+    private static void addCarnivore(Scanner scanner, Ecosistem ecosystem) {
+        System.out.print("Introduceți numele carnivorului: ");
+        String carnName = scanner.next();
+        System.out.print("Introduceți energia carnivorului: ");
+        int carnEnergy = scanner.nextInt();
+        System.out.print("Introduceți coordonatele carnivorului (x y): ");
+        int carnX = scanner.nextInt();
+        int carnY = scanner.nextInt();
+        System.out.print("Introduceți viteza carnivorului: ");
+        int carnSpeed = scanner.nextInt();
+        ecosystem.addEntity(new Carnivor(carnName, carnEnergy, carnX, carnY, 0.6, carnSpeed,1));
+        System.out.println("Carnivorul a fost adăugat: " + carnName);
+    }
+
+    private static void addOmnivore(Scanner scanner, Ecosistem ecosystem) {
+        System.out.print("Introduceți numele omnivorului: ");
+        String omniName = scanner.next();
+        System.out.print("Introduceți energia omnivorului: ");
+        int omniEnergy = scanner.nextInt();
+        System.out.print("Introduceți coordonatele omnivorului (x y): ");
+        int omniX = scanner.nextInt();
+        int omniY = scanner.nextInt();
+        System.out.print("Introduceți viteza omnivorului: ");
+        int omniSpeed = scanner.nextInt();
+
+        // Creăm un nou Omnivor cu generația specificată
+        ecosystem.addEntity(new Omnivor(omniName, omniEnergy, omniX, omniY, 0.7, omniSpeed, 1));
+
+        System.out.println("Omnivorul a fost adăugat: " + omniName );
+    }
+
+
+    private static void runExtendedSimulation(Scanner scanner, Ecosistem ecosystem) {
+        System.out.print("Introduceți numărul de pași pentru simularea extinsă: ");
+        int steps = scanner.nextInt();
+        ExtendedSimulation extendedSimulation = new ExtendedSimulation(ecosystem);
+        extendedSimulation.run(steps);
+        System.out.println("Simularea extinsă s-a finalizat pentru " + steps + " pași.");
+    }
+}
